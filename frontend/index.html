@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>用户列表</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- 头部 -->
+        <header class="header">
+            <h1>👥 用户管理</h1>
+            <p class="subtitle">系统用户列表</p>
+        </header>
+
+        <!-- 工具栏 -->
+        <div class="toolbar">
+            <div class="toolbar-left">
+                <span class="total-count">共 <strong id="countEl">0</strong> 条记录</span>
+            </div>
+            <div class="toolbar-right">
+                <button class="btn btn-primary" id="refreshBtn" title="刷新列表">
+                    🔄 刷新
+                </button>
+            </div>
+        </div>
+
+        <!-- 加载状态 -->
+        <div class="loading" id="loadingEl" style="display:none;">
+            <div class="spinner"></div>
+            <span>加载中...</span>
+        </div>
+
+        <!-- 错误提示 -->
+        <div class="alert alert-error" id="errorEl" style="display:none;"></div>
+
+        <!-- 空状态 -->
+        <div class="empty" id="emptyEl" style="display:none;">
+            <div class="empty-icon">📭</div>
+            <p>暂无用户数据</p>
+        </div>
+
+        <!-- 用户表格 -->
+        <div class="table-wrapper">
+            <table class="table" id="userTable">
+                <thead>
+                    <tr>
+                        <th style="width:80px;">ID</th>
+                        <th>用户名</th>
+                        <th>邮箱</th>
+                        <th style="width:100px;">状态</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody">
+                    <!-- JS 动态渲染 -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- 分页信息 -->
+        <footer class="footer">
+            <span id="footerText"></span>
+        </footer>
+    </div>
+
+    <!-- JS 模块 -->
+    <script src="js/api.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
